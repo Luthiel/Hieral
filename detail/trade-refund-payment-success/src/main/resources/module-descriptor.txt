@@ -1,0 +1,10 @@
+退款成功（三个不同的表）
+    从 退款表 refund_payment 中提取退款成功数据，并将字典表的 dic_name 退化到表中
+    从 订单表 order_info 中提取退款成功的订单数据
+    从 退单表 order_refund_info 中提取退款成功的明细数据
+三张表之间不存在业务时间上的滞后（同时变更），只需考虑可能存在的数据乱序问题
+
+退款操作：
+    refund_payment insert --> 若成功，则 update refund_status
+    order_info --> 若成功，update order_status
+    order_refund_info --> 若成功，update refund_status

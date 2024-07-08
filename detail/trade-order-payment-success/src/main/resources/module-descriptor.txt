@@ -1,0 +1,24 @@
+Flink SQL
+    interval join
+        - 适用场景
+        1. 事件时间对齐：当需要根据事件发生的时间来对齐两个流中的数据时
+        2. 时间窗口内的关联：如果你需要在特定的时间窗口内关联两个流中的记录
+        - 基本使用方式
+        SELECT *
+        FROM table1 [AS alias1]
+        JOIN table2 [AS alias2]
+        ON alias1.column1 = alias2.column1
+        AND alias1.timestamp BETWEEN alias2.timestamp - INTERVAL '1' HOUR AND alias2.timestamp + INTERVAL '1' HOUR;
+
+        先下单再支付
+        alias2         下单         |-|
+                                   /  |
+                                 /    |
+                               /      |
+        alias1         支付   |--------|
+        - 使用条件
+        Interval Join 要求表中均为 Append 数据，即 “只能新增，不能修改”
+
+涉及的表
+    支付表 支付 insert、支付成功 update
+    字典表 支付类型

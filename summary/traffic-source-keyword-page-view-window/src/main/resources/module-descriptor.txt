@@ -1,0 +1,28 @@
+MainLine Task
+    从 kafka <页面浏览明细主题> 读取数据，过滤搜索行为，使用 UDTF（one-to-many）函数对搜索内容分词
+    统计个窗口关键词出现频次，写入 Doris
+
+1. 分词处理
+创建分词工具类 --> 创建自定义函数类 --> 注册函数 --> 从 Kafka 读取数据并设置水位线 --> 过滤搜索行为
+--> 分词 --> 分组、开窗、聚合 --> 写出 Doris
+
+2. 写出数据到 Doris
+- Doris 建表 (明确表引擎 和 数据模型[Aggregate、Unique、Duplicate])
+    - Flink 通过异步分界线快照算法实现 Exactly-Once 语义，前提：
+        - Source 是可重置读取位置的数据源（Kafka 满足要求）
+        - Sink 要实现事务/支持幂等性（Doris 提供的 Connector 通过 2PC 保证精准一次，并提供幂等性写入）
+    - 分区（按天分区）
+        - Doris 支持 Range Partition(划分区间分区) 和 List Partition(枚举分区)
+        - Doris 动态分区可以实现表级分区的生命周期管理（创建未来分区，删除历史分区），通过建表时设定动态分区规则，FE 启动后台线程，不需要手动维护
+            - dynamic_partition.enable: 是否开启动态分区特性
+            - dynamic_partition.time_unit: 动态分区调度单位 HOUR、DAY、WEEK、MONTH
+            - dynamic_partition.start: 动态分区起始偏移
+            - dynamic_partition.end: 动态分区结束偏移
+            - dynamic_partition.prefix: 动态创建的分区名前缀
+            - dynamic_partition.buckets: 动态创建的分区对应的分桶数量
+            - dynamic_partition.replication_num: 动态创建的分区对应的副本数量，不指定默认为该表创建时指定的副本数量
+            - dynamic_partition.hot_partition_num: 指定多少分区为热分区
+            - dynamic_partition.create_history_partition: 设置为 true 时，Doris 会自动创建所有历史分区
+            - replication.num: 指定副本数，不可超过 IP 互不相同的 BE 节点数量
+- 写出方式
+    Flink Doris Connector: 实现 Flink SQL 及 Flink 流处理与 Doris 的数据交互

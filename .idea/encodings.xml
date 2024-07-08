@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/base-db/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/base-db/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/behavior-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/behavior-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/interaction-comment-info/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/interaction-comment-info/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-cart-add/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-cart-add/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-cancel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-cancel/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-detail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-detail/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-payment-success/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-payment-success/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-refund/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-order-refund/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-refund-payment-success/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/detail/trade-refund-payment-success/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dimension/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dimension/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/dws-traffic-source-keyword-page-view-window/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/dws-traffic-source-keyword-page-view-window/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/traffic-source-keyword-page-view-window/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/summary/traffic-source-keyword-page-view-window/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

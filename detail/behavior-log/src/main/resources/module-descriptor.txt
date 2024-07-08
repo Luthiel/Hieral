@@ -1,0 +1,14 @@
+负责对行为/流量域数据进行脏数据过滤、分流、is_new 状态修正
+
+DwdBaseLog.java
+
+将行为数据的不同信息写入 Kafka 的不同主题中
+- start --> TOPIC_DWD_TRAFFIC_START
+- err   --> TOPIC_DWD_TRAFFIC_ERR
+- display --> TOPIC_DWD_TRAFFIC_DISPLAY
+- action  --> TOPIC_DWD_TRAFFIC_ACTION
+- page    --> TOPIC_DWD_TRAFFIC_PAGE
+
+分流 splitStream
+状态修正 validateNewOrOld
+错误数据/脏数据校验（格式筛查） etl
