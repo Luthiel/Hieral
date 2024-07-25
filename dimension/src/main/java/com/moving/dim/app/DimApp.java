@@ -64,8 +64,8 @@ public class DimApp extends BaseApp {
                     String type = jsonObj.getString("type");
                     String data = jsonObj.getString("data");
 
-                    // 过滤空值数据 -> 数据库匹配（gmall） -> 数据不为空
-                    return "gmall".equals(db)
+                    // 过滤空值数据 -> 数据库匹配（ecommerce） -> 数据不为空
+                    return "ecommerce".equals(db)
                             && ("insert".equals(type)
                             || "update".equals(type)
                             || "delete".equals(type)
@@ -94,8 +94,8 @@ public class DimApp extends BaseApp {
         MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
                 .hostname(Constant.MYSQL_HOST)
                 .port(Constant.MYSQL_PORT)
-                .databaseList("gmall_config") // set captured database, If you need to synchronize the whole database, Please set tableList to ".*".
-                .tableList("gmall_config.table_process_dim") // set captured table
+                .databaseList("ecommerce_config") // set captured database, If you need to synchronize the whole database, Please set tableList to ".*".
+                .tableList("ecommerce_config.table_process_dim") // set captured table
                 .username(Constant.MYSQL_USER_NAME)
                 .password(Constant.MYSQL_PASSWORD)
                 .jdbcProperties(props)
@@ -199,7 +199,7 @@ public class DimApp extends BaseApp {
                         // 1. 去 mysql 中查询 table_process 表所有数据
                         java.sql.Connection mysqlConn = JdbcUtil.getMysqlConnection();
                         List<TableProcessDim> tableProcessDimList = JdbcUtil.queryList(mysqlConn,
-                                "select * from gmall_config.table_process_dim",
+                                "select * from ecommerce_config.table_process_dim",
                                 TableProcessDim.class,
                                 true
                         );

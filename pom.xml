@@ -15,6 +15,7 @@
         <module>summary</module>
         <module>detail/behavior-log</module>
         <module>detail/interaction-comment-info</module>
+        <module>CEP-Demo</module>
     </modules>
 
     <properties>

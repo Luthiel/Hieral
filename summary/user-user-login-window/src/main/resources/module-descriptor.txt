@@ -1,0 +1,17 @@
+回流用户统计和独立用户数统计
+
+lastLoginDate (Date)
+<condition> if lastLoginDate != null:
+    <condition> if lastLoginDate != curDate:
+                    <set> unique_user_cnt = 1
+                    <update> lastLoginDate = curDate
+    <condition> if datediff(curDate, lastLoginDate) >= 8:
+                    <set> back_user_cnt = 1
+
+    <condition> if lastLoginDate == curDate:
+                    <set> unique_user_cnt = 0
+                    <set> back_user_cnt = 0
+<condition> else:
+    <set> unique_user_cnt = 1
+    <set> back_user_cnt = 0
+    <set> lastLoginDate = curDate
